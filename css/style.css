@@ -560,6 +560,11 @@ header label {
 .pagination .page-number.current:after {
   width: 60%;
 }
+.article {
+  display: flex;
+  width: 1024px;
+  margin: 0 auto;
+}
 .intro {
   transform: translateY(20vh);
   text-align: center;
@@ -1246,6 +1251,10 @@ header label {
   }
   .categories .categories-card .card-item .categories {
     overflow: hidden;
+  }
+  .article {
+    display: block;
+    width: 100%;
   }
 }
 @media screen and (max-width: 1023px) {

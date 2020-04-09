@@ -132,6 +132,10 @@
   .categories .categories-card .card-item .categories {
     overflow: hidden;
   }
+  .article {
+    display: block;
+    width: 100%;
+  }
 }
 /* iPads (portrait and landscape) ----------- */
 @media screen and (max-width: 1023px) {
