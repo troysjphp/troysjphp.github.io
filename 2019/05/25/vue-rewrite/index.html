@@ -14,7 +14,7 @@
 
 
 
-<title>webpack本地运行 | 刘广飞的博客</title>
+<title>page | 刘广飞的博客</title>
 
 
 
@@ -175,7 +175,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">webpack本地运行</h1>
+            <h1 class="post-title">page</h1>
             
                 <div class="post-meta">
                     
@@ -184,7 +184,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">May 10, 2019&nbsp;&nbsp;16:22:53</a>
+                        Date: <a href="#">May 25, 2019&nbsp;&nbsp;20:38:58</a>
                         </span>
                     
                     
@@ -193,18 +193,18 @@
         </header>
 
         <div class="post-content">
-            <p>有关于webpack的本地运行和安装</p>
-<h3 id="全局安装webpack"><a href="#全局安装webpack" class="headerlink" title="全局安装webpack"></a>全局安装webpack</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init      生成package.js 文件</span><br><span class="line">npm install  安装依赖</span><br></pre></td></tr></table></figure>
+            <h3 id="​重定向也是通过-routes-配置来完成，下面例子是从-a-重定向到-b："><a href="#​重定向也是通过-routes-配置来完成，下面例子是从-a-重定向到-b：" class="headerlink" title="​重定向也是通过 routes 配置来完成，下面例子是从 /a 重定向到 /b："></a>​重定向也是通过 routes 配置来完成，下面例子是从 /a 重定向到 /b：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​const router = new VueRouter(&#123; routes: [ </span><br><span class="line">	&#123; path: <span class="string">'/a'</span>, redirect: <span class="string">'/b'</span> &#125; ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="配置文件webpack-config-js"><a href="#配置文件webpack-config-js" class="headerlink" title="配置文件webpack.config.js"></a>配置文件webpack.config.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">局部安装webpack ==&gt; npm install webpack@3.6.0 --save-dev</span><br></pre></td></tr></table></figure>
+<h3 id="​​重定向的目标也可以是一个命名的路由："><a href="#​​重定向的目标也可以是一个命名的路由：" class="headerlink" title="​​重定向的目标也可以是一个命名的路由："></a>​​重定向的目标也可以是一个命名的路由：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​const router = new VueRouter(&#123; routes: [ </span><br><span class="line">	&#123; path: <span class="string">'/a'</span>, redirect: ​&#123; name: <span class="string">'foo'</span> &#125; &#125; ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="安装css和less、sass的loader"><a href="#安装css和less、sass的loader" class="headerlink" title="安装css和less、sass的loader"></a>安装css和less、sass的loader</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">如果npm时报错，一般是因为less版本过高导致（webpack的版本是3.6.0）</span><br><span class="line">需要手动修改版本，在package.json文件中</span><br><span class="line">修改less和less-loader</span><br><span class="line"><span class="string">"less"</span>: <span class="string">"^3.9.0"</span>,</span><br><span class="line"><span class="string">"less-loader"</span>: <span class="string">"^5.0.0"</span>,</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.webpackjs.com/loaders/less-loader/" target="_blank" rel="noopener">官方文档链接</a></p>
-<h3 id="安装url-loader"><a href="#安装url-loader" class="headerlink" title="安装url-loader"></a>安装url-loader</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果报错file-loader，就是图片大小超出限制，需要安装file-loader</span><br></pre></td></tr></table></figure>
+<h3 id="​​​甚至是一个方法，动态返回重定向目标："><a href="#​​​甚至是一个方法，动态返回重定向目标：" class="headerlink" title="​​​甚至是一个方法，动态返回重定向目标："></a>​​​甚至是一个方法，动态返回重定向目标：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123; </span><br><span class="line">routes: [ &#123; path: <span class="string">'/a'</span>, redirect: to =&gt; &#123; </span><br><span class="line">// 方法接收 目标路由 作为参数 </span><br><span class="line">// <span class="built_in">return</span> 重定向的 字符串路径对象 </span><br><span class="line">&#125;&#125; ]&#125;)</span><br><span class="line">​注意导航守卫并没有应用在跳转路由上，而仅仅应用在其目标上。在下面这个例子中，为 /a 路由添加一个 beforeEach 或 beforeLeave 守卫并不会有任何效果。</span><br></pre></td></tr></table></figure>
 
-<h3 id="es6转es5"><a href="#es6转es5" class="headerlink" title="es6转es5"></a>es6转es5</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-loader@7 babel-core babel-preset-es2015</span><br><span class="line">babel详解</span><br><span class="line">https://www.jiangruitao.com/docs/babel/rudiments/quick-start/</span><br></pre></td></tr></table></figure>
+<p>​其它高级用法，<a href="https://github.com/vuejs/vue-router/blob/dev/examples/redirect/app.js" target="_blank" rel="noopener">请参考</a></p>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><h3 id="​​​“重定向”的意思是，当用户访问-a时，URL-将会被替换成-b，然后匹配路由为-b，那么“别名”又是什么呢？"><a href="#​​​“重定向”的意思是，当用户访问-a时，URL-将会被替换成-b，然后匹配路由为-b，那么“别名”又是什么呢？" class="headerlink" title="​​​“重定向”的意思是，当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b，那么“别名”又是什么呢？"></a>​​​“重定向”的意思是，当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b，那么“别名”又是什么呢？</h3><p>/a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。<br>上面对应的路由配置为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123; routes: [ &#123; path: &#39;&#x2F;a&#39;, component: A, alias: &#39;&#x2F;b&#39; &#125; ]&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="vue安装"><a href="#vue安装" class="headerlink" title="vue安装"></a>vue安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install vue --save</span><br><span class="line">1.报错You are using the runtime-only表示代码中不可以有template</span><br><span class="line">在webpack中配置 </span><br><span class="line">resolve: &#123;</span><br><span class="line"><span class="built_in">alias</span>: &#123;</span><br><span class="line"><span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">2.runtime-compiler可以有template，因为有compiler可以用于编译template</span><br></pre></td></tr></table></figure>
+<p>“别名”的功能让你可以自由地将 UI 结构映射到任意的 URL，而不是受限于配置的嵌套路由结构。<br>更多高级用法，<a href="https://github.com/vuejs/vue-router/blob/dev/examples/route-alias/app.js" target="_blank" rel="noopener">请查看</a></p>
+
         </div>
 
         
@@ -218,7 +218,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://troysjphp.github.io/2019/05/10/webpack/">https://troysjphp.github.io/2019/05/10/webpack/</a></span>
+                        <span><a href="https://troysjphp.github.io/2019/05/25/vue-rewrite/">https://troysjphp.github.io/2019/05/25/vue-rewrite/</a></span>
                     </p>
                 
                 
@@ -237,7 +237,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/webpack/"># webpack</a>
+                        <a href="/tags/vue/"># vue</a>
                     
                         
                 </span>
@@ -250,10 +250,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/05/18/es6-function/">ES6的三个数组函数</a>
             
-            
-            <a class="next" rel="next" href="/2019/04/21/css-action/">动态css下划线效果</a>
+            <a class="next" rel="next" href="/2019/05/18/es6-function/">ES6的三个数组函数</a>
             
         </section>
 
