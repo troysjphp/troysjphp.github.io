@@ -14,7 +14,7 @@
 
 
 
-<title>动态css下划线效果 | 刘广飞的博客</title>
+<title>webpack本地运行 | 刘广飞的博客</title>
 
 
 
@@ -175,7 +175,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">动态css下划线效果</h1>
+            <h1 class="post-title">webpack本地运行</h1>
             
                 <div class="post-meta">
                     
@@ -184,7 +184,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 21, 2019&nbsp;&nbsp;21:21:33</a>
+                        Date: <a href="#">May 10, 2019&nbsp;&nbsp;16:22:53</a>
                         </span>
                     
                     
@@ -193,34 +193,18 @@
         </header>
 
         <div class="post-content">
-            <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>将鼠标悬停在诸如链接之类的元素上时，它会显示为好像下划线一样显示的悬停动作。仅通过CCS实施。</p>
+            <p>有关于webpack的本地运行和安装</p>
+<h3 id="全局安装webpack"><a href="#全局安装webpack" class="headerlink" title="全局安装webpack"></a>全局安装webpack</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init      生成package.js 文件</span><br><span class="line">npm install  安装依赖</span><br></pre></td></tr></table></figure>
 
-<p class="linktext01"><span>这是显示的位置<br />显示的位置<br />位置</span></p>
+<h3 id="配置文件webpack-config-js"><a href="#配置文件webpack-config-js" class="headerlink" title="配置文件webpack.config.js"></a>配置文件webpack.config.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">局部安装webpack ==&gt; npm install webpack@3.6.0 --save-dev</span><br></pre></td></tr></table></figure>
 
-<style>
-.linktext01 span{
-  background-image: -moz-linear-gradient(top, #000 0%, #000 100%);
-  background-image: -webkit-linear-gradient(top, #000 0%,#000 100%);
-  background-image: linear-gradient(to bottom, #000 0%,#000 100%);
-  background-position: 0px 98%;
-  background-size: 0px 2px;
-  background-repeat: no-repeat;
-   -webkit-transition: 0.5s ease;
-  -ms-transition: 0.5s ease;
-  transition: 0.5s ease;
-}
-.linktext01:hover span{
-  background-size: 100% 2px;
-}
-</style>
+<h3 id="安装css和less、sass的loader"><a href="#安装css和less、sass的loader" class="headerlink" title="安装css和less、sass的loader"></a>安装css和less、sass的loader</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[文档链接](https://www.webpackjs.com/loaders/less-loader/)</span><br><span class="line">如果npm时报错，一般是因为less版本过高导致（webpack的版本是3.6.0）</span><br><span class="line">需要手动修改版本，在package.json文件中</span><br><span class="line">修改less和less-loader</span><br><span class="line"><span class="string">"less"</span>: <span class="string">"^3.9.0"</span>,</span><br><span class="line"><span class="string">"less-loader"</span>: <span class="string">"^5.0.0"</span>,</span><br></pre></td></tr></table></figure>
 
+<h3 id="安装url-loader"><a href="#安装url-loader" class="headerlink" title="安装url-loader"></a>安装url-loader</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果报错file-loader，就是图片大小超出限制，需要安装file-loader</span><br></pre></td></tr></table></figure>
 
-<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">.linktext01 span&#123;</span><br><span class="line">  background-image: -moz-linear-gradient(top, <span class="comment">#000 0%, #000 100%);</span></span><br><span class="line">  background-image: -webkit-linear-gradient(top, <span class="comment">#000 0%,#000 100%);</span></span><br><span class="line">  background-image: linear-gradient(to bottom, <span class="comment">#000 0%,#000 100%);</span></span><br><span class="line">  background-position: 0px 98%;</span><br><span class="line">  background-size: 0px 2px;</span><br><span class="line">  background-repeat: no-repeat;</span><br><span class="line">   -webkit-transition: 0.5s ease;</span><br><span class="line">  -ms-transition: 0.5s ease;</span><br><span class="line">  transition: 0.5s ease;</span><br><span class="line">&#125;</span><br><span class="line">.linktext01:hover span&#123;</span><br><span class="line">  background-size: 100% 2px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="es6转es5"><a href="#es6转es5" class="headerlink" title="es6转es5"></a>es6转es5</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --save-dev babel-loader@7 babel-core babel-preset-es2015</span><br><span class="line">babel详解</span><br><span class="line">https://www.jiangruitao.com/docs/babel/rudiments/quick-start/</span><br></pre></td></tr></table></figure>
 
-<h3 id="IE的样式"><a href="#IE的样式" class="headerlink" title="IE的样式"></a>IE的样式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.linktext02 span&#123;</span><br><span class="line">  background-image: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%);</span><br><span class="line">  background-image: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 100%);</span><br><span class="line">  background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,  rgba(0,0,0,0) 100%);</span><br><span class="line">  background-position: -500px 98%;</span><br><span class="line">  background-size: 100% 2px;</span><br><span class="line">  background-repeat: no-repeat;</span><br><span class="line">   -webkit-transition: 0.5s ease;</span><br><span class="line">  -ms-transition:0.5s ease;</span><br><span class="line">  transition: 0.5s ease;</span><br><span class="line">&#125;</span><br><span class="line">.linktext02:hover span&#123;</span><br><span class="line">  background-image: -moz-linear-gradient(top, <span class="comment">#000 0%, #000 100%);</span></span><br><span class="line">  background-image: -webkit-linear-gradient(top, <span class="comment">#000 0%,#000 100%);</span></span><br><span class="line">  background-image: linear-gradient(to bottom, <span class="comment">#000 0%,#000 100%);</span></span><br><span class="line">  background-position: 0 98%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
+<h3 id="vue安装"><a href="#vue安装" class="headerlink" title="vue安装"></a>vue安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm install vue --save</span><br><span class="line">1.报错You are using the runtime-only表示代码中不可以有template</span><br><span class="line">在webpack中配置 </span><br><span class="line">resolve: &#123;</span><br><span class="line"><span class="built_in">alias</span>: &#123;</span><br><span class="line"><span class="string">'vue$'</span>: <span class="string">'vue/dist/vue.esm.js'</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">2.runtime-compiler可以有template，因为有compiler可以用于编译template</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -234,7 +218,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://troysjphp.github.io/2019/04/21/css-action/">https://troysjphp.github.io/2019/04/21/css-action/</a></span>
+                        <span><a href="https://troysjphp.github.io/2019/05/10/webpack/">https://troysjphp.github.io/2019/05/10/webpack/</a></span>
                     </p>
                 
                 
@@ -253,7 +237,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/css/"># css</a>
+                        <a href="/tags/webpack/"># webpack</a>
                     
                         
                 </span>
@@ -266,10 +250,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/05/10/webpack/">webpack本地运行</a>
+                <a class="prev" rel="prev" href="/2019/05/18/es6-function/">ES6的三个数组函数</a>
             
             
-            <a class="next" rel="next" href="/2019/04/20/first-blog/">关于hexo的使用</a>
+            <a class="next" rel="next" href="/2019/04/21/css-action/">动态css下划线效果</a>
             
         </section>
 
