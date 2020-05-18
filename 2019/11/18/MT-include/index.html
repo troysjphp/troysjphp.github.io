@@ -14,7 +14,7 @@
 
 
 
-<title>leetcode的部分学习 | 刘广飞的博客</title>
+<title>MT-include | 刘广飞的博客</title>
 
 
 
@@ -175,7 +175,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">leetcode的部分学习</h1>
+            <h1 class="post-title">MT-include</h1>
             
                 <div class="post-meta">
                     
@@ -184,7 +184,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">June 10, 2019&nbsp;&nbsp;20:17:08</a>
+                        Date: <a href="#">November 18, 2019&nbsp;&nbsp;14:06:16</a>
                         </span>
                     
                     
@@ -193,11 +193,15 @@
         </header>
 
         <div class="post-content">
-            <h3 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> er(arr，target，start，end) &#123;</span><br><span class="line">	var mid = Math.floor((start+end)/2)</span><br><span class="line">	<span class="keyword">if</span>(start &gt; end) &#123;</span><br><span class="line">		console.log(<span class="string">"前一位是"</span>,arr[mid]); console.log(<span class="string">"下标："</span>,mid);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(arr[mid] &gt; target) &#123;</span><br><span class="line">		//说明是在前半部分,继续递归</span><br><span class="line">		er(arr，target，0，mid-1)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(mid &lt; target) &#123;</span><br><span class="line">		er(arr，target，mid+1，end)</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		console.log(<span class="string">"找到了,下标为:"</span>+mid); </span><br><span class="line">		<span class="built_in">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var arr=[1,3,12,21,24,44,54,67]; </span><br><span class="line">er(arr,25,0,arr.length-1);</span><br></pre></td></tr></table></figure>
-<h3 id="窗口滑动"><a href="#窗口滑动" class="headerlink" title="窗口滑动"></a>窗口滑动</h3><p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
-<p>示例 1:</p>
-<p>输入: “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">​</span><br><span class="line">var lengthOfLongestSubstring = <span class="keyword">function</span>(s) &#123;</span><br><span class="line">// 哈希集合，记录每个字符是否出现过</span><br><span class="line">const occ = new Set();</span><br><span class="line">const n = s.length;</span><br><span class="line">// 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动</span><br><span class="line"><span class="built_in">let</span> rk = -1, ans = 0;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">let</span> i = 0; i &lt; n; ++i) &#123;</span><br><span class="line"><span class="keyword">if</span> (i != 0) &#123;</span><br><span class="line">// 左指针向右移动一格，移除一个字符</span><br><span class="line">occ.delete(s.charAt(i - 1));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> (rk + 1 &lt; n &amp;&amp; !occ.has(s.charAt(rk + 1))) &#123;</span><br><span class="line">// 不断地移动右指针</span><br><span class="line">occ.add(s.charAt(rk + 1));</span><br><span class="line">++rk;</span><br><span class="line">&#125;</span><br><span class="line">// 第 i 到 rk 个字符是一个极长的无重复字符子串</span><br><span class="line">ans = Math.max(ans, rk - i + 1);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">return</span> ans;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+            <p>可以读取外部的 module 和文件，<br>注意：在定义了 MT-include 之后，即使被引用的文件被更新了，该页面也不能自动更新（需要再构筑），如果需要其自动更新的话，请使用动态引用 SSI 或者 PHP Include。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="variable">$mt</span>:Include module=<span class="string">"テンプレートモジュール名"</span>$&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="代码会被编译成"><a href="#代码会被编译成" class="headerlink" title="代码会被编译成"></a>代码会被编译成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 被展开的内容 --&gt;</span><br><span class="line">&lt;p&gt;被展开的内容&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用修饰符"><a href="#常用修饰符" class="headerlink" title="常用修饰符"></a>常用修饰符</h2><h3 id="file-”file-foo”"><a href="#file-”file-foo”" class="headerlink" title="file=”file_foo”"></a>file=”file_foo”</h3><p>引用指定文件，文件里的内容可以被展开<br>例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="variable">$mt</span>:Include file=<span class="string">"/var/www/html/some-fragment.html"</span>$&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="module-”module-foo”"><a href="#module-”module-foo”" class="headerlink" title="module=”module_foo”"></a>module=”module_foo”</h3><p>引用 MT module，module 内的内容可以被展开，而且 module 会读取被展开场所的上下文环境。</p>
+<h3 id="parent-”0-1”"><a href="#parent-”0-1”" class="headerlink" title="parent=”0 | 1”"></a>parent=”0 | 1”</h3><p>当设定 parent 为 1 时，会自动调取 website 级别的 module (如果当前环境为 blog)，如果 website 里没有对应名称的 module 则什么都不做。</p>
 
         </div>
 
@@ -212,7 +216,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://troysjphp.github.io/2019/06/10/hash/">https://troysjphp.github.io/2019/06/10/hash/</a></span>
+                        <span><a href="https://troysjphp.github.io/2019/11/18/MT-include/">https://troysjphp.github.io/2019/11/18/MT-include/</a></span>
                     </p>
                 
                 
@@ -231,7 +235,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/javascript/"># javascript</a>
+                        <a href="/tags/MT/"># MT</a>
                     
                         
                 </span>
@@ -244,10 +248,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/11/12/MT-canonicalURL/">MT-canonicalURL</a>
+                <a class="prev" rel="prev" href="/2019/11/21/MT-include/">MT-include</a>
             
             
-            <a class="next" rel="next" href="/2019/05/25/vue-rewrite/">vue-route重定向和别名</a>
+            <a class="next" rel="next" href="/2019/11/12/MT-canonicalURL/">MT-canonicalURL</a>
             
         </section>
 
