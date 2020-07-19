@@ -14,7 +14,7 @@
 
 
 
-<title>MT-article | 刘广飞的博客</title>
+<title>vue-dev环境的跨域配置 | 刘广飞的博客</title>
 
 
 
@@ -175,7 +175,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">MT-article</h1>
+            <h1 class="post-title">vue-dev环境的跨域配置</h1>
             
                 <div class="post-meta">
                     
@@ -184,7 +184,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">November 25, 2019&nbsp;&nbsp;20:16:23</a>
+                        Date: <a href="#">April 21, 2020&nbsp;&nbsp;10:21:55</a>
                         </span>
                     
                     
@@ -193,14 +193,24 @@
         </header>
 
         <div class="post-content">
-            <p>列出文章的标签。使用此标记可以使用文章存档以外的模板显示文章列表。通过指定修饰符，可以仅提取特定类别的文章，或按时间顺序列出指定数量的文章。</p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;mt:Entries lastn=<span class="string">"2"</span>&gt;</span><br><span class="line">  &lt;section&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"title"</span>&gt;&lt;<span class="variable">$mt</span>:EntryTitle$&gt;&lt;/h3&gt;</span><br><span class="line">    &lt;a class=<span class="string">"link"</span> href=<span class="string">"&lt;<span class="variable">$mt</span>:EntryPermalink$&gt;"</span>&gt;&lt;<span class="variable">$mt</span>:EntryTitle$&gt;的链接&lt;/a&gt;</span><br><span class="line">    &lt;p class=<span class="string">"description"</span>&gt;&lt;<span class="variable">$mt</span>:EntryExcerpt$&gt;&lt;/p&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;/mt:Entries&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="代码会被编译成"><a href="#代码会被编译成" class="headerlink" title="代码会被编译成"></a>代码会被编译成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;mt:Entries lastn=<span class="string">"2"</span>&gt;</span><br><span class="line">  &lt;section&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"title"</span>&gt;文章 1 的题目&lt;/h3&gt;</span><br><span class="line">    &lt;a class=<span class="string">"link"</span> href=<span class="string">"/link1"</span>&gt;文章 1 的链接&lt;/a&gt;</span><br><span class="line">    &lt;p class=<span class="string">"description"</span>&gt;文章 1 的描述&lt;/p&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">  &lt;section&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"title"</span>&gt;文章 2 的题目&lt;/h3&gt;</span><br><span class="line">    &lt;a class=<span class="string">"link"</span> href=<span class="string">"/link2"</span>&gt;文章2 的链接&lt;/a&gt;</span><br><span class="line">    &lt;p class=<span class="string">"description"</span>&gt;文章 2 的描述&lt;/p&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;/mt:Entries&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="常用修饰符"><a href="#常用修饰符" class="headerlink" title="常用修饰符"></a>常用修饰符</h2><p>lastn=”N”<br>N 的地方替换为数字之后，可以限制输出的记事数量 0 的时候为显示所有记事</p>
-<p>sort_by=”foo”<br>指定用于文章排序的修饰符。默认为创建日期</p>
-<p>常用用法<br>sort_by=”field:customfield” 用创建的 customfield 来进行排列，在 customfield 里输入数字之后利用数字顺序进行排序 注意！ 在 MT 里当其 customfield 类型为 text 可能出现无法排序的情况，设定的时候预先将数字统一好</p>
-
+            <h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>跨域基本是每个前端coder都会遇到的问题，首先了解下什么是跨域<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">MDN</a></p>
+<p>今天说一下vue的跨域是怎么解决的，首先是再dev环境下，可以使用webpack的proxy(<a href="https://www.webpackjs.com/configuration/dev-server/#devserver-proxy)来处理" target="_blank" rel="noopener">https://www.webpackjs.com/configuration/dev-server/#devserver-proxy)来处理</a><br>在生产环境下的话，需要使用 nginx 进行反向代理。不管是 proxy 和 nginx 的原理都是一样的，通过搭建一个中转服务器来转发请求规避跨域的问题。</p>
+<table>
+<thead>
+<tr>
+<th>开发环境</th>
+<th align="center">生产环境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>proxy</td>
+<td align="center">nginx</td>
+</tr>
+</tbody></table>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在使用vue脚手架开发中<br><img src="https://i.loli.net/2020/07/19/wiORZdqI6px7zyQ.png" alt="config配置"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.proxyTable: &#123;</span><br><span class="line">  <span class="string">'/api'</span>: &#123;</span><br><span class="line">    target: <span class="string">'https://www.dljpwx.com/api/m/wechat'</span>,</span><br><span class="line">    secure: <span class="literal">false</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后需要在request的axios封装中将baseUrl注释<br>还要在api的接口中用命名的重写参数来替换</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import request from <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> index(sid) &#123;</span><br><span class="line">  <span class="built_in">return</span> request(&#123;</span><br><span class="line">    url: <span class="string">'/api/website/index'</span>,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    params: &#123;sid&#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
         
@@ -214,7 +224,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://troysjphp.github.io/2019/11/25/MT-article/">https://troysjphp.github.io/2019/11/25/MT-article/</a></span>
+                        <span><a href="https://troysjphp.github.io/2020/04/21/vue-dev-action/">https://troysjphp.github.io/2020/04/21/vue-dev-action/</a></span>
                     </p>
                 
                 
@@ -233,7 +243,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/MT/"># MT</a>
+                        <a href="/tags/vue/"># vue</a>
                     
                         
                 </span>
@@ -246,10 +256,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/21/vue-dev-action/">vue-dev环境的跨域配置</a>
             
-            
-            <a class="next" rel="next" href="/2019/11/23/MT-loop/">MT-loop</a>
+            <a class="next" rel="next" href="/2019/11/25/MT-article/">MT-article</a>
             
         </section>
 
