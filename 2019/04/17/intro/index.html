@@ -193,92 +193,7 @@
         </header>
 
         <div class="post-content">
-            <h2 id="目标仅以此文纪念这些年失败的面试和逝去的头发。。"><a href="#目标仅以此文纪念这些年失败的面试和逝去的头发。。" class="headerlink" title="目标仅以此文纪念这些年失败的面试和逝去的头发。。"></a>目标仅以此文纪念这些年失败的面试和逝去的头发。。</h2><h3 id="第-1-题：console-log-2-39-2-39"><a href="#第-1-题：console-log-2-39-2-39" class="headerlink" title="第 1 题：console.log(2 + &#39;2&#39;)"></a>第 1 题：<code>console.log(2 + &#39;2&#39;)</code></h3><blockquote>
-<p>答案：<code>&#39;22&#39;</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>这是比较常规的面试题了，主要考察的是 JavaScript 中的隐式类型转换。在 JS 中 <code>+</code> 主要有两个作用：数字相加和字符串拼接，当 <code>+</code> 两边不都为数字时会把它们都转为字符串再拼接，所以第一个 <code>2</code> 会先被转成 <code>&#39;2&#39;</code> 再与第二个 <code>&#39;2&#39;</code> 拼接。</p>
-<h3 id="第-2-题：console-log-2-39-2-39"><a href="#第-2-题：console-log-2-39-2-39" class="headerlink" title="第 2 题：console.log(2 - &#39;2&#39;)"></a>第 2 题：<code>console.log(2 - &#39;2&#39;)</code></h3><blockquote>
-<p>答案：<code>0</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>和 <code>+</code> 不同，<code>-</code> 没有操作字符串而只有 “减法” 的功能，当 <code>-</code> 两边有非数字时会先把其转换成数字再相减。所以，本题中的 <code>&#39;2&#39;</code> 先被转成数字 <code>2</code>，最终 <code>2 - 2</code> 等于 <code>0</code>。当操作数没法转换成数字时则会导致结果为 <code>NaN</code>，比如 <code>&#39;foo&#39; - 2 = NaN</code>。</p>
-<blockquote>
-<p><code>*</code>、<code>/</code>、<code>%</code> 的行为也和 <code>-</code> 类似。</p>
-</blockquote>
-<h3 id="第-3-题：console-log-true-1"><a href="#第-3-题：console-log-true-1" class="headerlink" title="第 3 题：console.log(true + 1)"></a>第 3 题：<code>console.log(true + 1)</code></h3><blockquote>
-<p>答案：<code>2</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>有了第1题的经验，我们很容易就认为 <code>true</code> 和 <code>1</code> 都会被转成字符串，但实际上 JS 中 <code>true == 1</code>, <code>false == 0</code> ，所以 <code>true</code> 会被转成 <code>1</code> 再执行加法。</p>
-<blockquote>
-<p>注意：<code>true</code> 只等于 <code>1</code>，<code>false</code> 只等于 <code>0</code>，等于其他数字是不成立的，如 <code>true == 2</code> 为 <code>false</code>。</p>
-</blockquote>
-<h3 id="第-4-题：console-log-NaN-NaN"><a href="#第-4-题：console-log-NaN-NaN" class="headerlink" title="第 4 题：console.log(NaN === NaN)"></a>第 4 题：console.log(NaN === NaN)</h3><blockquote>
-<p>答案：<code>false</code></p>
-</blockquote>
-<p><strong>解析：</strong><br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN" target="_blank" rel="noopener">NaN</a> 表示一个不为数字的值（Not a number）。我们只需要记住：<strong><code>NaN</code>和所有值都不等，包括它自己，不管是用 <code>==</code> 还是 <code>===</code> 判断！判断一个值是否为 <code>NaN</code> 只能用 <code>isNaN()</code> 或者 <code>Number.isNaN()</code></strong>。</p>
-<h3 id="第-5-题：1-console-log-5-lt-6-lt-7-2-console-log-7-gt-6-gt-5"><a href="#第-5-题：1-console-log-5-lt-6-lt-7-2-console-log-7-gt-6-gt-5" class="headerlink" title="第 5 题：1. console.log(5 &lt; 6 &lt; 7) 2. console.log(7 &gt; 6 &gt; 5)"></a>第 5 题：1. <code>console.log(5 &lt; 6 &lt; 7)</code> 2. <code>console.log(7 &gt; 6 &gt; 5)</code></h3><blockquote>
-<p>答案：(1) <code>true</code>；(2) <code>false</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>根据第三题的经验 <code>true == 1</code>，<code>false == 0</code>，<code>5 &lt; 6 === true</code> 而 <code>1 &lt; 7</code>，所以 1 为 <code>true</code>；<code>7 &gt; 6 === true</code> 而 <code>1 &gt; 5 === false</code>，所以 2 为 <code>false</code>。</p>
-<h3 id="第-6-题：0-1-0-2"><a href="#第-6-题：0-1-0-2" class="headerlink" title="第 6 题：0.1 + 0.2 = ?"></a>第 6 题：<code>0.1 + 0.2 = ?</code></h3><blockquote>
-<p>答案：<code>0.30000000000000004</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>问题的关键不在于答案里面有几个 0，而在于它不等于 0.3！Javascript 中的数字使用的是 64 位双精度浮点型（可参考 <a href="https://www.ecma-international.org/ecma-262/5.1/#sec-8.5" target="_blank" rel="noopener">ECMAScript 规范</a>）。如同十进制不能精确表示 <code>1/3</code> 对应的小数，二进制也没有办法精确表示 <code>0.1</code>、<code>0.2</code> 这种小数，比如 <code>0.1</code> 转成二进制为：<code>0.0001100110011001100110011001100110011001100110011001101</code>，是无限循环的小数，而因为计算机不可能无限分配内存去存储这个数，一般只能精确到多少位，所以造成精度丢失在所难免，最终导致计算结果有所偏差。</p>
-<h3 id="第-7-题：-1-2-3-4-5-6"><a href="#第-7-题：-1-2-3-4-5-6" class="headerlink" title="第 7 题：[1, 2, 3] + [4, 5, 6] = ?"></a>第 7 题：<code>[1, 2, 3] + [4, 5, 6] = ?</code></h3><blockquote>
-<p>答案：<code>1,2,34,5,6</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>本题主要考察隐式类型转换和数组转字符串，我们已经知道 <code>+</code> 两边如果不都为数字则会把它们转成字符串再拼接，而 <code>[1, 2, 3].toString() === &#39;1,2,3&#39;</code>，因为最终结果为 <code>&#39;1,2,3&#39; + &#39;4,5,6&#39; === &#39;1,2,34,5,6&#39;</code>。</p>
-<p>如果我们想要进行数组拼接可以：</p>
-<pre><code>[1, 2, 3].concat([4, 5, 6]);
-
-// 或者使用spread opertator
-[...[1, 2, 3], ...[4, 5, 6]];</code></pre><h3 id="第-8-题：求打印结果"><a href="#第-8-题：求打印结果" class="headerlink" title="第 8 题：求打印结果"></a>第 8 题：求打印结果</h3><pre><code>(function () {
-  var a = b = 100;
-})();
-
-console.log(a);
-console.log(b);</code></pre><blockquote>
-<p>答案：报错（<code>Uncaught ReferenceError: a is not defined</code>）</p>
-</blockquote>
-<p><strong>解析：</strong><br>由于赋值表达式是从右往左执行的，相当于 <code>var a = (b = 100);</code>，所以先执行 <code>b = 100</code>，由于函数体中并没有局部变量 <code>b</code>，所以会定义一个全局变量 <code>b</code> 并赋值 <code>100</code>；接着执行 <code>a = b</code>，会把b的值赋值给局部变量 <code>a</code>。执行 <code>console.log(a)</code> 时会直接报错，因为全局作用域中并没有定义 <code>a</code>，由于报错导致程序中断所以 <code>console.log(b)</code> 没有执行。如果把 <code>console.log(b)</code> 放在前面就是先打印 <code>100</code> 再报错了。</p>
-<blockquote>
-<p>使用严格模式（<code>&#39;use strict&#39;</code>）可以避免<code>b</code>这种意外全局变量的创建。</p>
-</blockquote>
-<h3 id="第-9-题：求打印结果"><a href="#第-9-题：求打印结果" class="headerlink" title="第 9 题：求打印结果"></a>第 9 题：求打印结果</h3><pre><code>for (var i = 0; i &lt; 5; i++) {
-  setTimeout(function () {
-    console.log(i);
-  }, 0);
-}</code></pre><blockquote>
-<p>答案：<code>5 5 5 5 5</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>这是个经典问题，考察对作用域和 event loop 的理解。用 <code>var</code> 定义的变量的作用域是函数作用域（functional scope），所以上面代码相当于:</p>
-<pre><code>var i;
-
-for (i = 0; i &lt; 5; i++) {
-  ...
-}</code></pre><p>最终 <code>console.log(i)</code> 里面的 <code>i</code> 引用的是外面的那个，而由于event loop机制，<code>setTimeout</code> 的回调函数会被push到task queue里面等call stack里面的for循环结束了再执行，此时 <code>i</code> 已经变成了5，因此最终打印结果变成5个5。随着ES6的普及，<code>var</code> 使用的机会越来越少，<code>let</code>、<code>const</code> 成为主流，本题如果想打印 <code>0 1 2 3 4</code>，只要把 <code>var</code> 换成 <code>let</code> 就行了。</p>
-<h3 id="第-10-题：求打印结果"><a href="#第-10-题：求打印结果" class="headerlink" title="第 10 题：求打印结果"></a>第 10 题：求打印结果</h3><pre><code>function foo() {
-  return x;
-
-  function x() {}
-}
-
-console.log(typeof foo());</code></pre><blockquote>
-<p>答案：<code>&#39;function&#39;</code></p>
-</blockquote>
-<p><strong>解析：</strong><br>本题考察的是对函数提升的理解。一般定义一个函数有两种方式：</p>
-<ol>
-<li>函数声明（function declaration）：<code>function fn(){ ... }</code></li>
-<li>函数表达式（function expression）：<code>var fn = function(){ ... }</code></li>
-</ol>
-<p>其中函数声明会存在函数提升的现象，而函数表达式则没有（函数表达式会存在变量提升，但初始化并不会被提升，所以不具有函数提升的效果），即JS在编译阶段会把对函数的定义提升到作用域顶部（实际上并不会修改代码结构，而是在内存中进行处理），所以本题的代码等价于：</p>
-<pre><code>function foo() {
-  function x() {
-    console.log(`hi`);
-  }
-
-  return x;
-}</code></pre><p>所以，结果打印 <code>function</code>。函数提升的主要作用是可以在函数定义之前就进行调用。</p>
-<h3 id="第-11-题：求打印结果"><a href="#第-11-题：求打印结果" class="headerlink" title="第 11 题：求打印结果"></a>第 11 题：求打印结果</h3><pre><code>var x = 1;
+            <h3 id="第-11-题：求打印结果"><a href="#第-11-题：求打印结果" class="headerlink" title="第 11 题：求打印结果"></a>第 11 题：求打印结果</h3><pre><code>var x = 1;
 function x(){}
 
 console.log(typeof x);</code></pre><blockquote>
@@ -492,7 +407,7 @@ obj.p = 1;</code></pre><blockquote>
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2019/04/20/first-blog/">关于hexo的使用</a>
+                <a class="prev" rel="prev" href="/2019/04/17/intro/">javascript的面试总结</a>
             
             
             <a class="next" rel="next" href="/2019/04/11/bibao/">javascript的闭包</a>
