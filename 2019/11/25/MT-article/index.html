@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="LGF">
+
+
+
+    <meta name="description" content="技术、生活、分享">
+
+
+
+<title>MT-article | 刘广飞的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">刘广飞的个人博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">存档</a>
+                
+                    <a class="menu-item" href="/category">类别</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">刘广飞的个人博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">存档</a>
+                
+                    <a class="menu-item" href="/category">类别</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">MT-article</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">LGF</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">November 25, 2019&nbsp;&nbsp;20:16:23</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>列出文章的标签。使用此标记可以使用文章存档以外的模板显示文章列表。通过指定修饰符，可以仅提取特定类别的文章，或按时间顺序列出指定数量的文章。</p>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;mt:Entries lastn=<span class="string">"2"</span>&gt;</span><br><span class="line">  &lt;section&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"title"</span>&gt;&lt;<span class="variable">$mt</span>:EntryTitle$&gt;&lt;/h3&gt;</span><br><span class="line">    &lt;a class=<span class="string">"link"</span> href=<span class="string">"&lt;<span class="variable">$mt</span>:EntryPermalink$&gt;"</span>&gt;&lt;<span class="variable">$mt</span>:EntryTitle$&gt;的链接&lt;/a&gt;</span><br><span class="line">    &lt;p class=<span class="string">"description"</span>&gt;&lt;<span class="variable">$mt</span>:EntryExcerpt$&gt;&lt;/p&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;/mt:Entries&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="代码会被编译成"><a href="#代码会被编译成" class="headerlink" title="代码会被编译成"></a>代码会被编译成</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;mt:Entries lastn=<span class="string">"2"</span>&gt;</span><br><span class="line">  &lt;section&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"title"</span>&gt;文章 1 的题目&lt;/h3&gt;</span><br><span class="line">    &lt;a class=<span class="string">"link"</span> href=<span class="string">"/link1"</span>&gt;文章 1 的链接&lt;/a&gt;</span><br><span class="line">    &lt;p class=<span class="string">"description"</span>&gt;文章 1 的描述&lt;/p&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">  &lt;section&gt;</span><br><span class="line">    &lt;h3 class=<span class="string">"title"</span>&gt;文章 2 的题目&lt;/h3&gt;</span><br><span class="line">    &lt;a class=<span class="string">"link"</span> href=<span class="string">"/link2"</span>&gt;文章2 的链接&lt;/a&gt;</span><br><span class="line">    &lt;p class=<span class="string">"description"</span>&gt;文章 2 的描述&lt;/p&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;/mt:Entries&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用修饰符"><a href="#常用修饰符" class="headerlink" title="常用修饰符"></a>常用修饰符</h2><p>lastn=”N”<br>N 的地方替换为数字之后，可以限制输出的记事数量 0 的时候为显示所有记事</p>
+<p>sort_by=”foo”<br>指定用于文章排序的修饰符。默认为创建日期</p>
+<p>常用用法<br>sort_by=”field:customfield” 用创建的 customfield 来进行排列，在 customfield 里输入数字之后利用数字顺序进行排序 注意！ 在 MT 里当其 customfield 类型为 text 可能出现无法排序的情况，设定的时候预先将数字统一好</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>LGF</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://troysjphp.github.io/2019/11/25/MT-article/">https://troysjphp.github.io/2019/11/25/MT-article/</a></span>
+                    </p>
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span><strong>talk is cheap, show me the code</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/MT/"># MT</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/04/21/vue-dev-action/">vue-dev环境的跨域配置</a>
+            
+            
+            <a class="next" rel="next" href="/2019/11/23/MT-loop/">MT-loop</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© LGF | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

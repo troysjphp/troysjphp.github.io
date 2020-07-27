@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="LGF">
+
+
+
+    <meta name="description" content="技术、生活、分享">
+
+
+
+<title>vue-route重定向和别名 | 刘广飞的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">刘广飞的个人博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">存档</a>
+                
+                    <a class="menu-item" href="/category">类别</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">刘广飞的个人博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">存档</a>
+                
+                    <a class="menu-item" href="/category">类别</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">vue-route重定向和别名</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">LGF</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">May 25, 2019&nbsp;&nbsp;20:38:58</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h3 id="​重定向也是通过-routes-配置来完成，下面例子是从-a-重定向到-b："><a href="#​重定向也是通过-routes-配置来完成，下面例子是从-a-重定向到-b：" class="headerlink" title="​重定向也是通过 routes 配置来完成，下面例子是从 /a 重定向到 /b："></a>​重定向也是通过 routes 配置来完成，下面例子是从 /a 重定向到 /b：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​const router = new VueRouter(&#123; routes: [ </span><br><span class="line">	&#123; path: <span class="string">'/a'</span>, redirect: <span class="string">'/b'</span> &#125; ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="​​重定向的目标也可以是一个命名的路由："><a href="#​​重定向的目标也可以是一个命名的路由：" class="headerlink" title="​​重定向的目标也可以是一个命名的路由："></a>​​重定向的目标也可以是一个命名的路由：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">​const router = new VueRouter(&#123; routes: [ </span><br><span class="line">	&#123; path: <span class="string">'/a'</span>, redirect: ​&#123; name: <span class="string">'foo'</span> &#125; &#125; ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="​​​甚至是一个方法，动态返回重定向目标："><a href="#​​​甚至是一个方法，动态返回重定向目标：" class="headerlink" title="​​​甚至是一个方法，动态返回重定向目标："></a>​​​甚至是一个方法，动态返回重定向目标：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123; </span><br><span class="line">routes: [ &#123; path: <span class="string">'/a'</span>, redirect: to =&gt; &#123; </span><br><span class="line">// 方法接收 目标路由 作为参数 </span><br><span class="line">// <span class="built_in">return</span> 重定向的 字符串路径对象 </span><br><span class="line">&#125;&#125; ]&#125;)</span><br><span class="line">​注意导航守卫并没有应用在跳转路由上，而仅仅应用在其目标上。在下面这个例子中，为 /a 路由添加一个 beforeEach 或 beforeLeave 守卫并不会有任何效果。</span><br></pre></td></tr></table></figure>
+
+<p>​其它高级用法，<a href="https://github.com/vuejs/vue-router/blob/dev/examples/redirect/app.js" target="_blank" rel="noopener">请参考</a></p>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><h3 id="​​​“重定向”的意思是，当用户访问-a时，URL-将会被替换成-b，然后匹配路由为-b，那么“别名”又是什么呢？"><a href="#​​​“重定向”的意思是，当用户访问-a时，URL-将会被替换成-b，然后匹配路由为-b，那么“别名”又是什么呢？" class="headerlink" title="​​​“重定向”的意思是，当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b，那么“别名”又是什么呢？"></a>​​​“重定向”的意思是，当用户访问 /a时，URL 将会被替换成 /b，然后匹配路由为 /b，那么“别名”又是什么呢？</h3><p>/a 的别名是 /b，意味着，当用户访问 /b 时，URL 会保持为 /b，但是路由匹配则为 /a，就像用户访问 /a 一样。<br>上面对应的路由配置为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123; routes: [ &#123; path: &#39;&#x2F;a&#39;, component: A, alias: &#39;&#x2F;b&#39; &#125; ]&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>“别名”的功能让你可以自由地将 UI 结构映射到任意的 URL，而不是受限于配置的嵌套路由结构。<br>更多高级用法，<a href="https://github.com/vuejs/vue-router/blob/dev/examples/route-alias/app.js" target="_blank" rel="noopener">请查看</a></p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>LGF</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://troysjphp.github.io/2019/05/25/vue-rewrite/">https://troysjphp.github.io/2019/05/25/vue-rewrite/</a></span>
+                    </p>
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span><strong>talk is cheap, show me the code</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/vue/"># vue</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2019/06/10/hash/">leetcode的部分学习</a>
+            
+            
+            <a class="next" rel="next" href="/2019/05/18/es6-function/">ES6的三个数组函数</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© LGF | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>
