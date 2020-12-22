@@ -209,6 +209,119 @@
 <p>1.<a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="noopener">animation</a>实现动画效果</p>
 <p>2.<a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="noopener">animation-timing-function</a>控制动画流畅程度，达到卡顿效果</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.shake_btn:hover::after &#123;</span><br><span class="line">  animation: glitch 1s infinite;</span><br><span class="line">  animation-timing-function: steps(2, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes glitch &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(-20px, -10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  10% &#123;</span><br><span class="line">    clip-path: var(--slice-3);</span><br><span class="line">    transform: translate(10px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  20% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(-10px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  30% &#123;</span><br><span class="line">    clip-path: var(--slice-3);</span><br><span class="line">    transform: translate(0px, 5px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  40% &#123;</span><br><span class="line">    clip-path: var(--slice-2);</span><br><span class="line">    transform: translate(-5px, 0px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  50% &#123;</span><br><span class="line">    clip-path: var(--slice-3);</span><br><span class="line">    transform: translate(5px, 0px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  60% &#123;</span><br><span class="line">    clip-path: var(--slice-4);</span><br><span class="line">    transform: translate(5px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  70% &#123;</span><br><span class="line">    clip-path: var(--slice-2);</span><br><span class="line">    transform: translate(-10px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  80% &#123;</span><br><span class="line">    clip-path: var(--slice-5);</span><br><span class="line">    transform: translate(20px, -10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  90% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(-10px, 0px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  100% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(0);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+  <div class="shake_panel">
+    <button class="shake_btn">PLAY NOW</button>
+  </div>
+
+<style>
+.shake_panel {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #f8f005;
+  padding: 50px 0 ;
+}
+
+.shake_btn {
+  width: 300px;
+  height: 86px;
+  font-size: 3.2rem;
+  border: none;
+  font-weight: bold;
+  line-height: 86px;
+  background-image: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+  color: #ffffff;
+  box-shadow: 6px 0px 0px #00E6F6;
+  outline: transparent;
+  position: relative;
+}
+.shake_btn:hover {
+  cursor: pointer;
+}
+
+.shake_btn::after {
+  --slice-0: inset(80% -6px 0 0);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 80% 0);
+  --slice-4: inset(40% -6px 40% 0);
+  --slice-5: inset(80% -6px 0 0);
+
+  content: 'PLAY NOW';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0 #00e6f6;
+  clip-path: var(--slice-0);
+}
+.shake_btn:hover::after {
+  animation: glitch 1s infinite;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+</style>
+
         </div>
 
         
