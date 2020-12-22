@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="LGF">
+
+
+
+    <meta name="description" content="技术、生活、分享">
+
+
+
+<title>2077废土风按钮样式 | 刘广飞的博客</title>
+
+
+
+    <link rel="icon" href="/favicon.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">刘广飞的个人博客</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="/archives">存档</a>
+                
+                    <a class="menu-item" href="/category">类别</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">刘广飞的个人博客</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="/archives">存档</a>
+                
+                    <a class="menu-item" href="/category">类别</a>
+                
+                    <a class="menu-item" href="/tag">标签</a>
+                
+                    <a class="menu-item" href="/about">关于</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+        <div class="main">
+            <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    document.ready(
+        function () {
+            tocbot.init({
+                tocSelector: '.tocbot-list',
+                contentSelector: '.post-content',
+                headingSelector: 'h1, h2, h3, h4, h5',
+                collapseDepth: 1,
+                orderedList: false,
+                scrollSmooth: true,
+            })
+        }
+    )
+
+    function expand_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 6,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "collapse_toc()");
+        b.innerHTML = "Collapse all"
+    }
+
+    function collapse_toc() {
+        var b = document.querySelector(".tocbot-toc-expand");
+        tocbot.init({
+            tocSelector: '.tocbot-list',
+            contentSelector: '.post-content',
+            headingSelector: 'h1, h2, h3, h4, h5',
+            collapseDepth: 1,
+            orderedList: false,
+            scrollSmooth: true,
+        });
+        b.setAttribute("onclick", "expand_toc()");
+        b.innerHTML = "Expand all"
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">2077废土风按钮样式</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">LGF</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 20, 2020&nbsp;&nbsp;19:02:20</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="追热点-》2077废土风按钮样式"><a href="#追热点-》2077废土风按钮样式" class="headerlink" title="追热点=》2077废土风按钮样式"></a>追热点=》2077废土风按钮样式</h2><h3 id="linear-gradient、clip-path-、animation"><a href="#linear-gradient、clip-path-、animation" class="headerlink" title="linear-gradient、clip-path()、animation"></a>linear-gradient、clip-path()、animation</h3><p>参考来源：<br><a href="https://juejin.cn/post/6908565208596217863" target="_blank" rel="noopener">纯 CSS 制作赛博朋克 2077</a></p>
+<p><img src="2077.image" alt="这是代替图片的文字，随便写"></p>
+<p><strong>建立一个静态按钮</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;shake_panel&quot;&gt;</span><br><span class="line">  &lt;button class&#x3D;&quot;shake_btn&quot;&gt;PLAY NOW&lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>利用<a href="https://www.runoob.com/css3/css3-gradients.html" target="_blank" rel="noopener">linear-gradient(angle, color-stop1, color-stop2)</a><br>制作一个背景样式，angle指水平线和渐变线之间的角度，45deg是从左下到右上，5%是其所占比例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.shake_panel &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  align-content: center;</span><br><span class="line">  background: #f8f005;</span><br><span class="line">  padding: 50px 0 ;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.shake_btn &#123;</span><br><span class="line">  width: 300px;</span><br><span class="line">  height: 86px;</span><br><span class="line">  font-size: 3.2rem;</span><br><span class="line">  border: none;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  line-height: 86px;</span><br><span class="line">  background-image: linear-gradient(45deg, transparent 5%, #ff013c 5%);</span><br><span class="line">  color: #ffffff;</span><br><span class="line">  box-shadow: 6px 0px 0px #00E6F6;</span><br><span class="line">  outline: transparent;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置一个浮动样式，实现切片效果</strong></p>
+<p>1.利用<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path" target="_blank" rel="noopener">clip-path</a><br>截取多个切片，不断shake这些切片达到效果</p>
+<p>2.text-shadow 给切片加上阴影过渡效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">.shake_btn:hover &#123;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.shake_btn::after &#123;</span><br><span class="line">  --slice-0: inset(80% -6px 0 0);</span><br><span class="line">  --slice-1: inset(80% -6px 0 0);</span><br><span class="line">  --slice-2: inset(50% -6px 30% 0);</span><br><span class="line">  --slice-3: inset(10% -6px 80% 0);</span><br><span class="line">  --slice-4: inset(40% -6px 40% 0);</span><br><span class="line">  --slice-5: inset(80% -6px 0 0);</span><br><span class="line"></span><br><span class="line">  content: &#39;PLAY NOW&#39;;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 0;</span><br><span class="line">  right: 0;</span><br><span class="line">  bottom: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  background-image: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);</span><br><span class="line">  text-shadow: -3px -3px 0px #f8f005, 3px 3px 0 #00e6f6;</span><br><span class="line">  clip-path: var(--slice-0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>animation实现shake效果</strong></p>
+<p>1.<a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="noopener">animation</a>实现动画效果</p>
+<p>2.<a href="https://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="noopener">animation-timing-function</a>控制动画流畅程度，达到卡顿效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">.shake_btn:hover::after &#123;</span><br><span class="line">  animation: glitch 1s infinite;</span><br><span class="line">  animation-timing-function: steps(2, end);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@keyframes glitch &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(-20px, -10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  10% &#123;</span><br><span class="line">    clip-path: var(--slice-3);</span><br><span class="line">    transform: translate(10px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  20% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(-10px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  30% &#123;</span><br><span class="line">    clip-path: var(--slice-3);</span><br><span class="line">    transform: translate(0px, 5px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  40% &#123;</span><br><span class="line">    clip-path: var(--slice-2);</span><br><span class="line">    transform: translate(-5px, 0px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  50% &#123;</span><br><span class="line">    clip-path: var(--slice-3);</span><br><span class="line">    transform: translate(5px, 0px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  60% &#123;</span><br><span class="line">    clip-path: var(--slice-4);</span><br><span class="line">    transform: translate(5px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  70% &#123;</span><br><span class="line">    clip-path: var(--slice-2);</span><br><span class="line">    transform: translate(-10px, 10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  80% &#123;</span><br><span class="line">    clip-path: var(--slice-5);</span><br><span class="line">    transform: translate(20px, -10px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  90% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(-10px, 0px);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  100% &#123;</span><br><span class="line">    clip-path: var(--slice-1);</span><br><span class="line">    transform: translate(0);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>LGF</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://troysjphp.github.io/2020/12/20/2077/">https://troysjphp.github.io/2020/12/20/2077/</a></span>
+                    </p>
+                
+                
+                
+                     <p class="copyright-item">
+                         <span>Slogan:</span>
+                         <span><strong>talk is cheap, show me the code</strong>?</span>
+                     </p>
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/javascript/"># javascript</a>
+                    
+                        <a href="/tags/2077/"># 2077</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2020/12/22/null/">My New Post</a>
+            
+            
+            <a class="next" rel="next" href="/2020/11/11/intro/">javascript学习笔记</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+        </div>
+        <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© LGF | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+</html>

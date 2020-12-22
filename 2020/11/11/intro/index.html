@@ -14,7 +14,7 @@
 
 
 
-<title>vue-dev环境的跨域配置 | 刘广飞的博客</title>
+<title>javascript学习笔记 | 刘广飞的博客</title>
 
 
 
@@ -175,7 +175,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">vue-dev环境的跨域配置</h1>
+            <h1 class="post-title">javascript学习笔记</h1>
             
                 <div class="post-meta">
                     
@@ -184,7 +184,7 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">April 21, 2020&nbsp;&nbsp;10:21:55</a>
+                        Date: <a href="#">November 11, 2020&nbsp;&nbsp;19:07:20</a>
                         </span>
                     
                     
@@ -193,24 +193,20 @@
         </header>
 
         <div class="post-content">
-            <h2 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h2><p>跨域基本是每个前端coder都会遇到的问题，首先了解下什么是跨域<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">MDN</a></p>
-<p>今天说一下vue的跨域是怎么解决的，首先是再dev环境下，可以使用webpack的<a href="https://www.webpackjs.com/configuration/dev-server/#devserver-proxy" target="_blank" rel="noopener">proxy</a>来处理。<br>在生产环境下的话，需要使用 nginx 进行反向代理。不管是 proxy 和 nginx 的原理都是一样的，通过搭建一个中转服务器来转发请求规避跨域的问题。</p>
-<table>
-<thead>
-<tr>
-<th>开发环境</th>
-<th align="center">生产环境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>proxy</td>
-<td align="center">nginx</td>
-</tr>
-</tbody></table>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>在使用vue脚手架开发中<br><img src="https://i.loli.net/2020/07/19/wiORZdqI6px7zyQ.png" alt="config配置"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.proxyTable: &#123;</span><br><span class="line">  <span class="string">'/api'</span>: &#123;</span><br><span class="line">    target: <span class="string">'https://www.dljpwx.com/api/m/wechat'</span>,</span><br><span class="line">    secure: <span class="literal">false</span>,</span><br><span class="line">    changeOrigin: <span class="literal">true</span>,</span><br><span class="line">    pathRewrite: &#123;</span><br><span class="line">      <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后需要在request的axios封装中将baseUrl注释<br>还要在api的接口中用命名的重写参数来替换</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import request from <span class="string">'@/utils/request'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> <span class="keyword">function</span> index(sid) &#123;</span><br><span class="line">  <span class="built_in">return</span> request(&#123;</span><br><span class="line">    url: <span class="string">'/api/website/index'</span>,</span><br><span class="line">    method: <span class="string">'get'</span>,</span><br><span class="line">    params: &#123;sid&#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h2 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h2><ol>
+<li>isInteger()</li>
+<li>toFixed()</li>
+<li>normalize()</li>
+<li>concat()</li>
+<li>slice()、substr()、substring()<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">三个函数都可以传入两个参数，第一个参数是字符串的起始位置，</span><br><span class="line">第二个参数有不同：</span><br><span class="line">slice()和substring()作用一样，第二个参数也是返回截至位置；</span><br><span class="line">substr()第二个参数是长度。</span><br></pre></td></tr></table></figure></li>
+<li>indexOf()、lastIndexOf()<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">也是传入两个参数，第一个是要检索的字符串，第二个参数是起始位置（数字）</span><br></pre></td></tr></table></figure>
+ES6新增三个判断是否存在该字符串的方式：<br>startsWith()、endsWith()、includes()</li>
+<li>padStart()、padEnd() （复制字符串）</li>
+<li>search(), replace()（text.replace(/(.at)/g, word($1))）</li>
+<li>eval()</li>
+<li>Math.random(), Math.min(), Math.ceil()</li>
+</ol>
+
         </div>
 
         
@@ -224,7 +220,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://troysjphp.github.io/2020/04/21/vue-dev-action/">https://troysjphp.github.io/2020/04/21/vue-dev-action/</a></span>
+                        <span><a href="https://troysjphp.github.io/2020/11/11/intro/">https://troysjphp.github.io/2020/11/11/intro/</a></span>
                     </p>
                 
                 
@@ -243,7 +239,7 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/vue/"># vue</a>
+                        <a href="/tags/javascript/"># javascript</a>
                     
                         
                 </span>
@@ -256,10 +252,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/25/intro/">javascript的面试总结（part1）</a>
+                <a class="prev" rel="prev" href="/2020/12/20/2077/">2077废土风按钮样式</a>
             
             
-            <a class="next" rel="next" href="/2019/11/25/MT-article/">MT-article</a>
+            <a class="next" rel="next" href="/2020/05/01/intro/">javascript高级程序设计学习</a>
             
         </section>
 
